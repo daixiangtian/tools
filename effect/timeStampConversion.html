@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>timeStampConversion</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		timeStampConversion
+		<p class="txt">请对下面的输入框进行操作</p>
+		<input class="input"  oninput="whileInput(this)" type="number" placeholder="请输入时间戳" />
+		<button onclick="change()">转换</button>
+	</div>
+	<script>
+		function change(){
+			var input = document.querySelector('input'),
+				p = document.querySelector('p');
+				
+			if(input.value){
+				p.innerHTML = "您输入的："+input.value +"</br>"+"转换结果："+$tools.timeStampConversion(Number(input.value));
+			}
+		}
+		function whileInput(item){
+			if(item.value >= new Date().getTime())item.value = new Date().getTime();
+		}
+	
+	</script>
+	</body>
+</html>

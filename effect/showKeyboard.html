@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>showKeyboard</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		showKeyboard
+		<p class="txt">请对下面的输入框进行操作</p>
+		<input class="input" onfocus="$tools.showKeyboard(this);" />
+	</div>
+	</body>
+</html>

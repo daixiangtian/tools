@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>specialEffect - threeDParticle</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body style="background:#000;">
+	<div class="box">
+		specialEffect - threeDParticle
+	</div>
+	<script type="text/javascript">
+		window.onload = function() {
+		    //配置
+		    var config = {
+		        vx: 4,	//小球x轴速度,正为右，负为左
+		        vy: 4,	//小球y轴速度
+		        height: 2,	//小球高宽，其实为正方形，所以不宜太大
+		        width: 2,
+		        count: 200,		//点个数
+		        color: "121, 162, 185", 	//点颜色
+		        stroke: "130,255,255", 		//线条颜色
+		        dist: 6000, 	//点吸附距离
+		        e_dist: 20000, 	//鼠标吸附加速距离
+		        max_conn: 10, 	//点到点最大连接数
+				body : document.querySelector('body')		//想要将其作为背景对象
+		    }
+
+		    //调用
+		    $tools.specialEffect.threeDParticle.init(config);
+		}
+	</script>
+	</body>
+</html>

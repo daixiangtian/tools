@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>banner</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+
+div {
+    margin: 0 auto;
+}
+.btns {
+    text-align: center;
+    padding: 20px 0;
+}
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+		</style>
+	</head>
+	<body>
+		<div class="btns">
+			<button onclick="$tools.specialEffect.banner.method.isChangeArrow();">切换轮播方向</button>
+			<button onclick="$tools.specialEffect.banner.method.startOrStop();">暂停/开始</button>
+		</div>
+	<script>
+		var config =  {
+			pics : [
+				"../image/timg.jpg",
+				"../image/timg01.jpg",
+				"../image/timg02.jpg",
+				"../image/timg03.jpg",
+				"../image/timg04.jpg",
+				"../image/timg05.jpg",
+			],					//图片集合
+			width : 500,					//宽度
+			height : 300,					//高度
+			pointPosition : null,		//小圆点的方向
+			showPoint : true,			//是否显示小圆点
+			directionLeft : true,			//方向
+			showArrow : false,			//是否显示方向键
+			type : "slide",				//切换方式
+			fillParent : document.querySelector('body'),			//填充对象
+		}
+		$tools.specialEffect.banner.init(config);
+		</script>
+	</body>
+</html>

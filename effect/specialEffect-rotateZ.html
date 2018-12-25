@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>specialEffect - rotateZ</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		specialEffect - rotateZ
+		<p class="txt">图片轮播特效</p>
+		<ul style="margin: 0 auto;"></ul>
+	</div>
+	<script>
+		$tools.specialEffect.rotateZ.init({
+			width : 200,
+			height : 200,
+			interval : 3000,
+			pic : [
+				"../image/012300558d06636ac7253264014023.jpg@1280w_1l_2o_100sh.jpg",
+				"../image/20140523032456166.jpg",
+				"../image/u=32311714,839976110&fm=26&gp=0.jpg",
+				"../image/u=459083416,2346515918&fm=26&gp=0.jpg",
+			],
+			fillParent : document.querySelector('ul')
+		});
+	
+	</script>
+	</body>
+</html>

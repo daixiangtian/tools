@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>replace</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		replace
+		<p class="txt">替换成您的座右铭</p>
+		<button onclick="replace()">替换</button>
+	</div>
+	<script>
+	
+		function replace(){
+			var p = document.querySelector('p');
+			$tools.replace({
+				content : p.innerText,
+				point  :  p.innerText,
+				fill : "努力成为自己想成为的人",
+				show : true,
+				callback : function( result ){
+					p.innerHTML = result;
+				}
+			})
+		}
+	
+		
+	
+	</script>
+	</body>
+</html>

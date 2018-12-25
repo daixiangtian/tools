@@ -1,0 +1,538 @@
+<!doctype html><!--申明当前文档的类型-->
+<html>
+	<head>
+		<!--中文编码: GBK  GB2312   国际编码集:utf-8-->
+		<meta http-equiv="Content-Type" content="text-html; charset=utf-8"/>
+		<!--申明当前页面的三要素-->
+		<title>my tools</title>
+		<script src="./js/my-tools-0.0.2.js"></script>
+		<script src="./js/frist.js"></script>
+		<link rel="stylesheet" href="./css/frist.css">
+	</head>
+<body>
+	<div class="body">
+	<div class="page-top">
+		<h1>my-tools.js<span> -- 戴向天</span></h1>
+		<p>最新my-tools.js地址:<a target="_blank " href="https://www.52mihuan.com/tools/js/my-tools-0.0.2.js">https://www.52mihuan.com/tools/js/my-tools-0.0.2.js</a></p>
+	</div>
+	<div id="page-content">
+		<ul class="my-tools-list">
+			<li>replace</li>
+			<li>confirm</li>
+			<li>alert</li>
+			<li>showKeyboard</li>
+			<li>StringJudge</li>
+			<li>toast</li>
+			<li>timeStampConversion</li>
+			<li>base64encode</li>
+			<li>utf8to16</li>
+			<li>picLoadLayer</li>
+			<li>specialEffect - rotateZ</li>
+			<li>specialEffect - threeDParticle</li>
+			<li>openIframe</li>
+			<li>banner</li>
+			<li>isPhoneCode</li>
+			<li>table</li>
+		</ul>
+		<div class="my-tools-info">
+			<ul class="my-tools-info-list">
+				<li class="my-single-tool">
+					<a name="replace" class="anchor"></a>
+					<h1>replace</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.replace({
+	content : "内容",
+	point  :  "查找的目标",
+	fill : "替换的内容",
+	show : true,					//是否显示
+	callback : function( result ){	//回调函数
+		$tools.alert("返回的内容："+result);
+	}
+})
+					</pre>
+					<button onclick="toolsShow.data[0].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="confirm" class="anchor"></a>
+					<h1>confirm</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.confirm({
+	txt : "点击下面按钮，了解confirm",
+	btn : ["已懂",'没懂'],
+	callback : function( result ){
+		if(result){
+			$tools.alert("您已经了解了$tools.confirm");
+		}else{
+			$tools.alert("您还没懂$tools.confirm?");
+		}
+	}
+})
+					</pre>
+					<button onclick="toolsShow.data[1].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="alert" class="anchor"></a>
+					<h1>alert</h1>
+					<p>JavaScript:</p>
+					<pre>
+
+$tools.alert("这个是 $tools.alert 函数方法");
+					</pre>
+					<button onclick="toolsShow.data[2].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="showKeyboard" class="anchor"></a>
+					<h1>showKeyboard</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.showKeyboard(this);
+					</pre>
+					<button onclick="toolsShow.data[3].method(this)">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="StringJudge" class="anchor"></a>
+					<h1>StringJudge</h1>
+					<p>HTML:</p>
+					<pre>
+					
+&lt;select onchange="changeInputType(this)"&gt;
+	&lt;option value="1">number&lt;/option&gt;
+	&lt;option value="2">String is not charWord&lt;/option&gt;
+	&lt;option value="3">String have charWord&lt;/option&gt;
+&lt;/select&gt;
+&lt;input onkeyup="strJudge(this)"/&gt;&lt;/div&gt;					
+					</pre>
+					<p>JavaScript:</p>
+					<pre>
+					
+var testJson = {
+	limit : 999,
+	minLength : 0,
+	type : "number"
+}
+function changeInputType(item){
+	var index = item.selectedIndex ;
+		switch(Number(item.options[index].value)){
+			case 1 :
+				testJson.type = "number";
+			break;
+			case 2 : 
+				testJson.charWord = false;
+				testJson.type = "string";
+			break;
+			case 3:
+				testJson.charWord = true;
+				testJson.type = "string";
+			break;
+		}
+}
+function strJudge( item ){
+	testJson.val = item.value;
+	var json = $tools.strJudge(testJson);
+	item.value = json.val
+}
+					</pre>
+					<button onclick="toolsShow.data[4].method(this)">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="toast" class="anchor"></a>
+					<h1>toast</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.toast("这是toast");
+					</pre>
+					<button onclick="toolsShow.data[5].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="timeStampConversion" class="anchor"></a>
+					<h1>timeStampConversion</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.alert("当前时间戳："+new Date().getTime()
+			+"======>"+
+			$tools.timeStampConversion(new Date().getTime()));
+					</pre>
+					<button onclick="toolsShow.data[6].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="base64encode" class="anchor"></a>
+					<h1>base64encode</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.alert($tools.encryption.base64encode($tools.encryption.utf16to8("my-tools.js")));
+					</pre>
+					<button onclick="toolsShow.data[7].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="utf8to16" class="anchor"></a>
+					<h1>utf8to16</h1>
+					<p>JavaScript:</p>
+					<pre>
+					
+$tools.alert($tools.encryption.utf8to16($tools.encryption.base64decode("bXktdG9vbHMuanM=")));
+					</pre>
+					<button onclick="toolsShow.data[8].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="picLoadLayer" class="anchor"></a>
+					<h1>picLoadLayer</h1>
+					<p>HTML:</p>
+					<pre>
+&lt;img class="original-map"  src="https://sjbz-fd.zol-img.com.cn/t_s320x510c/g5/M00/0B/05/ChMkJ1gln5uISGe7AACxSXvP5GgAAXqNABw43IAALFh001.jpg"/&gt;
+&lt;div class="original-map-box" &gt;
+	&lt;img onload="$tools.picLoadLayer(this)" src="https://sjbz-fd.zol-img.com.cn/t_s320x510c/g5/M00/0B/05/ChMkJ1gln5uISGe7AACxSXvP5GgAAXqNABw43IAALFh001.jpg"/&gt;
+&lt;/div&gt;
+					</pre>
+					<p>JavaScript:</p>
+					<pre>
+
+$tools.picLoadLayer(this)
+					</pre>
+				</li>
+				<li class="my-single-tool">
+					<a name="rotateZ" class="anchor"></a>
+					<h1>specialEffect - rotateZ</h1>
+					<p>JavaScript:</p>
+					<pre>
+
+$tools.specialEffect.rotateZ.init({
+	width : 200,
+	height : 200,
+	interval : 3000,
+	pic : [
+		"../image/012300558d06636ac7253264014023.jpg@1280w_1l_2o_100sh.jpg",
+		"../image/20140523032456166.jpg",
+		"../image/u=32311714,839976110&fm=26&gp=0.jpg",
+		"../image/u=459083416,2346515918&fm=26&gp=0.jpg",
+	],
+	fillParent : document.querySelector('ul')
+});
+					</pre>
+					<button onclick="toolsShow.data[10].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<a name="threeDParticle" class="anchor"></a>
+					<h1>specialEffect - threeDParticle</h1>
+					<p>JavaScript:</p>
+					<pre>
+
+//调用
+$tools.specialEffect.threeDParticle.init({
+	vx: 4,	//小球x轴速度,正为右，负为左
+	vy: 4,	//小球y轴速度
+	height: 2,	//小球高宽，其实为正方形，所以不宜太大
+	width: 2,
+	count: 80,		//点个数
+	color: "121, 162, 185", 	//点颜色
+	stroke: "130,255,255", 		//线条颜色
+	dist: 6000, 	//点吸附距离
+	e_dist: 20000, 	//鼠标吸附加速距离
+	max_conn: 10, 	//点到点最大连接数
+	body : document.querySelector('body')		//想要将其作为背景对象
+});
+					</pre>
+					<button onclick="toolsShow.data[11].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<h1>openIframe</h1>
+					<p>JavaScript:</p>
+					<pre>
+
+$tools.openIframe.init({
+	width : 500,
+	height : 300,
+	src : "https://www.baidu.com",
+	name : "百度",
+	miniFn : function( status ){
+		console.log("点击了缩小的按钮:"+status)
+	},
+	bigFn : function(status ){
+		console.log("点击了放大的按钮:"+status)
+	},
+	closeFn : function(){
+		console.log('点击了关闭按钮')
+	}
+});
+					</pre>
+					<button onclick="toolsShow.data[12].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<h1>banner</h1>
+					<p>JavaScript:</p>
+					<pre>
+
+var config =  {
+	pics : [
+		"../image/timg.jpg",
+		"../image/timg01.jpg",
+		"../image/timg02.jpg",
+		"../image/timg03.jpg",
+		"../image/timg04.jpg",
+		"../image/timg05.jpg",
+	],					//图片集合
+	width : 500,					//宽度
+	height : 300,					//高度
+	pointPosition : null,		//小圆点的方向
+	showPoint : true,			//是否显示小圆点
+	directionLeft : true,			//方向
+	showArrow : false,			//是否显示方向键
+	type : "slide",				//切换方式
+	fillParent : document.querySelector('body'),			//填充对象
+}
+$tools.banner.init(config);
+					</pre>
+					<button onclick="toolsShow.data[13].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<h1>isPhoneCode</h1>
+					<p>JavaScript:</p>
+					<pre>
+
+$tools.isPhoneCode(12345678901)				
+					</pre>
+					<button onclick="toolsShow.data[14].method()">查看</button>
+				</li>
+				<li class="my-single-tool">
+					<h1>table</h1>
+					<p>config</p>
+					<pre class="config-pre">
+let params = [
+	{
+		name: "全部订单",
+		row:10,
+		total:13,
+		show:8,
+		check: function( result ){
+			console.log( result )
+		},
+		serial: true,
+		pagingCallBack : function( pageNumber , fn ){
+			console.log(pageNumber);
+		},
+		fields:[
+			{name:"订单编号",key:"orderNumber",sort:true,style:{
+				width:"120px"
+			}},
+			{name:"负责人",key:"userName",methods:{
+				onChange:function(result){
+					console.log(result);
+				}
+			}},
+			{name:"联系电话",key:"tel",methods:{
+				onChange:function(result){
+					console.log(result);
+				}
+			}},
+			{name:"性别",key:"sex",sort:true,style:{
+				width:"70px"
+			},template:function(val){
+				return val === 1?'男':val === 2?'女':'未知'
+			}},
+			{name:"时间",key:"time"},
+			{name:"状态",key:"status",template:function( val ){
+				if(val === 1){
+					return `<span>已完成</span>`
+				}else if(val === 2){
+					return `<span>待审核</span>`
+				}else if(val === 3){
+					return `<span>代付款</span>`
+				}
+			}}
+		],
+		data:[
+			{
+				orderNumber:1238213846138,
+				userName: "戴向天1",
+				tel: "150****9115",
+				sex: 1,
+				time: "2018-12-22",
+				status: 1
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天2",
+				tel: "150****9115",
+				sex: 2,
+				time: "2018-12-22",
+				status: 2
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天3",
+				tel: "150****9115",
+				sex: 3,
+				time: "2018-12-22",
+				status: 3
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天4",
+				tel: "150****9115",
+				sex: 3,
+				time: "2018-12-22",
+				status: 1
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天5",
+				tel: "150****9115",
+				sex: 3,
+				time: "2018-12-22",
+				status: 1
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天6",
+				tel: "150****9115",
+				sex: 2,
+				time: "2018-12-22",
+				status: 2
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天7",
+				tel: "150****9115",
+				sex: 2,
+				time: "2018-12-22",
+				status: 3
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天8",
+				tel: "150****9115",
+				sex: 2,
+				time: "2018-12-22",
+				status: 3
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天9",
+				tel: "150****9115",
+				sex: 1,
+				time: "2018-12-22",
+				status: 1
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天1",
+				tel: "150****9115",
+				sex: 1,
+				time: "2018-12-22",
+				status: 2
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天2",
+				tel: "150****9115",
+				sex: 1,
+				time: "2018-12-22",
+				status: 2
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天3",
+				tel: "150****9115",
+				sex: 2,
+				time: "2018-12-22",
+				status: 1
+			},{
+				orderNumber:1238213846138,
+				userName: "戴向天4",
+				tel: "150****9115",
+				sex: 1,
+				time: "2018-12-22",
+				status: 2
+			}
+		]
+	}
+]
+					</pre>
+					<p>JavaScript:</p>
+					<pre>
+ 
+$tools.table(params);				
+					</pre>
+					<p>参数说明：</p>
+					<pre class="param-pre">
+	params : {
+		parent : obj,		// dom元素  用来作为table容器的
+		config : [
+			{
+				name: String,		//表名称
+				row:Number,			//每页显示多少行	默认10条
+				total:Number,		//数据总数量
+				show:Number,		//可视的数据条数
+				check: Event:function( result ){		//事件,若写有该函数，就会自动添加复选框，当点击的复选框的时候就会进行触发，点击全部，返回的当前页的所有数据的信息，点击单个就会返回当前的数据
+					console.log(result)
+				},
+				serial:Boolean,		// 是否显示序列号，默认不显示
+				pagingCallBack:Event:function(pageNum,callBack){
+					// 返回当前的页码
+					console.log(pageNum);
+					// 将得到的数据重新填冲
+					callBack(data);
+					
+				},
+				fields:Array:[
+					{
+						name: String,	//字段名称
+						key: String,	//索引值
+						style: JSON:{	//给该字段给予自定义样式
+							width: String,	 
+						},
+						methods: JSON {		//方法集
+							onChange: Event:function(result){	//当绑定了该函数后,在该字段的数据里面就会有编辑的小按钮，如果改变数据的时候就会触发
+								
+								console.log(result);
+							}
+						},
+						template:String | Event: function( value ){		//当绑定了该字段后,就可以自定该数据框的内容.可以是字符串，也可以是函数，函数的参数是当前的字段数据
+							
+							console.log(result)
+						}
+					}
+				]
+			}
+		]
+	}
+					</pre>
+					<button onclick="toolsShow.data[14].method()">查看</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+	<script>
+		
+		var choiceBtn = document.querySelectorAll('.my-tools-list>li'),
+			showchoiceInfo = document.querySelectorAll('.my-single-tool');
+			showIndex = 0;
+			for(var i=0;i<choiceBtn.length;i++){
+				choiceBtn[i].index = i;
+				choiceBtn[i].onclick = function(){
+					showchoiceInfo[showIndex].style.display = "none";
+					choiceBtn[showIndex].style.background = "rgba(238, 238, 238, 0)";
+					choiceBtn[showIndex].style.color = "#000";
+					showIndex = this.index;
+					showchoiceInfo[this.index].style.display = "block";
+					this.style.background = "rgba(238, 238, 238, 0.5)";
+					this.style.color = "#fff";
+				}
+			}
+		choiceBtn[0].click();
+		
+		//调用
+		$tools.specialEffect.threeDParticle.init({
+			vx: 4,	//小球x轴速度,正为右，负为左
+			vy: 4,	//小球y轴速度
+			height: 2,	//小球高宽，其实为正方形，所以不宜太大
+			width: 2,
+			count: 80,		//点个数
+			color: "121, 162, 185", 	//点颜色
+			stroke: "130,255,255", 		//线条颜色
+			dist: 6000, 	//点吸附距离
+			e_dist: 20000, 	//鼠标吸附加速距离
+			max_conn: 10, 	//点到点最大连接数
+			body : document.querySelector('body')		//想要将其作为背景对象
+		});
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>strJudge</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		strJudge
+		<p class="txt">请对下面的输入框进行操作</p>
+		<select onchange="changeInputType(this)">
+			<option value="1">纯数字</option>
+			<option value="2">无汉字</option>
+			<option value="3">包含汉字</option>
+		</select>
+		<input class="input" onkeyup="strJudge(this)"/>		
+	</div>
+	<script>
+		var testJson = {
+			limit : 999,
+			minLength : 0,
+			type : "number"
+		}
+		function changeInputType(item){
+			var index = item.selectedIndex ;
+				switch(Number(item.options[index].value)){
+					case 1 :
+						testJson.type = "number";
+					break;
+					case 2 : 
+						testJson.charWord = false;
+						testJson.type = "string";
+					break;
+					case 3:
+						testJson.charWord = true;
+						testJson.type = "string";
+					break;
+				}
+				document.querySelector('input').value = null;
+		}
+		function strJudge( item ){
+			testJson.val = item.value;
+			var json = $tools.strJudge(testJson);
+			item.value = json.val
+		}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>isPhoneCode</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		isPhoneCode
+		<p class="txt">请对下面的输入框进行操作</p>
+		<input class="input"  oninput="whileInput(this)" type="number" placeholder="请输入电话号码" />
+	</div>
+	<script>
+		function whileInput(item){
+			
+			var p = document.querySelector('p');
+				if($tools.isPhoneCode(item.value)){
+					p.innerHTML = item.value+"	是电话号码";
+				}else{
+					p.innerHTML = item.value+"	不是电话号码";
+				}
+		}
+	
+	</script>
+	</body>
+</html>

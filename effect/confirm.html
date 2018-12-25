@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>confirm</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		confirm
+		<p class="txt">点击下面按钮，了解confirm</p>
+		<button onclick="confirm()">是吗？</button>
+	</div>
+	<script>
+	
+		function confirm(){
+			var p = document.querySelector('p');
+			$tools.confirm({
+				txt : p.innerHTML,
+				btn : ["已懂",'没懂'],
+				callback : function( result ){
+					
+					if(result){
+						p.innerHTML = "您已经了解了$tools.confirm";
+						
+					}else{
+						p.innerHTML = "您还没懂$tools.confirm?"
+					}
+				}
+			})
+		}
+	
+		
+	
+	</script>
+	</body>
+</html>

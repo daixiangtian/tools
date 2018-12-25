@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>replace</title>
+		<script src="../js/my-tools-0.0.2.js"></script>
+		<style>
+			*{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;}
+			body {
+    display: flex;
+    align-items: center;
+
+}
+
+div.box {
+    margin: 0 auto;
+		font-size:30px;
+    text-align: center;
+}
+
+p.txt {
+    font-size: 18px;
+    background: #eee;
+    padding: 10px;
+	margin : 10px 0 ;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+}
+input.input,select {
+    height: 30px;
+    padding: 0 5px;
+}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		base64encode
+		<p class="txt">请输入您需要解密的字符</p>
+		<input class="input" placeholder="请输入您需要解密的字符" />
+		<button onclick="change()">转换</button>
+	</div>
+	<script>
+		function change(){
+			var input = document.querySelector('input'),
+				p = document.querySelector('p');
+				
+			if(input.value){
+				p.innerHTML = "您输入的："+input.value +"</br>"+"转换结果："+$tools.encryption.utf8to16($tools.encryption.base64decode(input.value));
+			}
+		}
+	
+	</script>
+	</body>
+</html>
